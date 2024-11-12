@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redefinir Senha</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="../Styles/RedefinirSenha.css">
+   
+</head>
+
+<body>
+    <div class="container">
+        <h1>Redefinir sua senha</h1>
+        <p>Preencha os campos abaixo</p>
+
+        <!-- Campo para senha nova com verificação de força -->
+        <div class="password-field">
+            <input type="password" id="senha" class="input-field" placeholder="Digite sua nova senha"
+                onkeyup="verificarForcaSenha()">
+            <img src="../Login/img/olhoFechado.png" alt="Mostrar senha" id="toggleSenha1" class="password-toggle"
+                onclick="toggleSenha('senha', 'toggleSenha1')">
+        </div>
+        <div id="forca-senha" class="password-strength">Senha Fraca</div>
+
+        <!-- Confirmar nova senha -->
+        <div class="password-field">
+            <input type="password" id="confirmar-senha" class="input-field"
+                placeholder="Digite sua nova senha novamente" onkeyup="verificarSenhasIguais()">
+            <img src="../Login/img/olhoFechado.png" alt="Mostrar senha" id="toggleSenha2" class="password-toggle"
+                onclick="toggleSenha('confirmar-senha', 'toggleSenha2')">
+        </div>
+        <div id="mensagem-erro" class="error-message" style="display:none;">As senhas não são iguais!</div>
+
+
+    <button onclick="alert('Senha redefinida com sucesso')">REDEFINIR</button>
+
+    </div>
+
+    <script>
+        function verificarForcaSenha() {
+            var senha = document.getElementById('senha').value;
+            var forcaTexto = document.getElementById('forca-senha');
+
+            if (senha.length < 5) {
+                forcaTexto.textContent = 'Senha Fraca';
+                forcaTexto.className = 'password-strength fraca';
+            } else if (senha.length < 8) {
+                forcaTexto.textContent = 'Senha Média';
+                forcaTexto.className = 'password-strength media';
+            } else if (senha.length >= 10) {
+                forcaTexto.textContent = 'Senha Forte';
+                forcaTexto.className = 'password-strength forte';
+            } else {
+                forcaTexto.textContent = 'Senha Média';
+                forcaTexto.className = 'password-strength media';
+            }
+        }
+
+        function toggleSenha(campoId, toggleId) {
+            var campoSenha = document.getElementById(campoId);
+            var toggleImg = document.getElementById(toggleId);
+
+            if (campoSenha.type === 'password') {
+                campoSenha.type = 'text';
+                toggleImg.src = '../Login/img/olhoAberto.png'; // Alterar para a imagem de olho aberto
+            } else {
+                campoSenha.type = 'password';
+                toggleImg.src = '../Login/img/olhoFechado.png'; // Alterar para a imagem de olho fechado
+            }
+        }
+        function verificarSenhasIguais() {
+                var senha = document.getElementById('senha').value;
+                var confirmarSenha = document.getElementById('confirmar-senha').value;
+                var mensagemErro = document.getElementById('mensagem-erro');
+
+                if (senha !== confirmarSenha) {
+                    mensagemErro.style.display = 'block'; // Exibir mensagem de erro
+                } else {
+                    mensagemErro.style.display = 'none';  // Esconder mensagem de erro
+                }
+            }
+    </script>
+</body>
+
+</html>
