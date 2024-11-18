@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,23 +8,35 @@
     <link rel="stylesheet" href="/Styles/Login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
+    <!-- Mensagem de sucesso do cadastro -->
+    <div id="mensagemCadastro" class="alert alert-success" style="display: none;">
+        Cadastro realizado com sucesso!
+    </div>
+
     <section class="c1">
         <div class="c11">
-            <h1>Bem Vindo de volta!</h1 ><hr style="color: #08F984;">
+            <h1>Bem Vindo de volta!</h1>
+            <hr style="color: #08F984;">
             <p>Caso não tenha uma conta <br></p>
             <div class="registro-btn">
                 <a href="registro.html">
                     <button>
-                       Crie uma conta
+                        Crie uma conta
                     </button>
                 </a>
             </div>
@@ -42,8 +55,26 @@
                     <a href="esqueceu_a_senha.html">Esqueceu a senha?</a>
                 </div>
             </div>
-            
+
         </div>
     </section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Verificar se há uma mensagem de cadastro bem-sucedido no localStorage
+        $(document).ready(function () {
+            if (localStorage.getItem("cadastroSucesso")) {
+                // Mostrar a mensagem
+                $("#mensagemCadastro").show();
+
+                // Remover a mensagem após um tempo para não persistir nas futuras visitas
+                setTimeout(function () {
+                    $("#mensagemCadastro").fadeOut();
+                    localStorage.removeItem("cadastroSucesso");
+                }, 5000); // A mensagem desaparecerá após 5 segundos
+            }
+        });
+    </script>
 </body>
+
 </html>

@@ -1,12 +1,250 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/PlataformaDigital_ProjIntegrador/Styles/Login.css">
+    <title>Cadastro de Perfil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            background-color: #16995c;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #170C23;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: fixed;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .sidebar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .sidebar .logo span {
+            display: block;
+            color: #08F984;
+            font-size: 1.2rem;
+        }
+
+        .sidebar nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar nav ul li {
+            margin: 10px 0;
+            font-size: 1rem;
+            color: #9D9D9D;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .sidebar nav ul li:hover {
+            color: #08F984;
+        }
+
+        main {
+            margin-left: 270px;
+            padding: 20px;
+            color: white;
+        }
+
+        .form-container {
+            background-color: #170C23;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .form-container h1 {
+            color: #08F984;
+            margin-bottom: 20px;
+        }
+
+        .form-container .form-control {
+            background-color: #58446D;
+            color: white;
+            border: 1px solid #9D9D9D;
+        }
+
+        .form-container .form-control:focus {
+            border-color: #08F984;
+            box-shadow: 0 0 5px rgba(8, 249, 132, 0.5);
+        }
+
+        .form-container label {
+            color: #9D9D9D;
+        }
+
+        .form-container .btn-primary {
+            background-color: #08F984;
+            color: #170C23;
+            font-weight: bold;
+            border-radius: 8px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-container .btn-primary:hover {
+            background-color: #2F1E40;
+            color: #08F984;
+        }
+
+        .form-container .form-check-input {
+            background-color: #170C23;
+            border-color: #9D9D9D;
+        }
+
+        .form-container .form-check-input:checked {
+            background-color: #08F984;
+        }
+        ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #08F984;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+ul li a:hover {
+    color: #170C23;
+}
+
+    </style>
 </head>
+
 <body>
-    
+
+    <div class="sidebar">
+        <div class="logo">
+            <span>Easy</span>Health
+        </div>
+        <nav>
+            <ul>
+                <li><a href="inicio.html">Início</a></li>
+                <li><a href="consultas.html">Consultas</a></li>
+                <li><a href="perfil.html">Perfil</a></li>
+                <li><a href="configuracoes.html">Configurações</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <main>
+        <div class="form-container">
+            <h1>Criar Novo Perfil</h1>
+            <form id="formCadastro">
+                <div class="mb-3">
+                    <label for="nome" class="form-label">Nome Completo</label>
+                    <input type="text" class="form-control" id="nome" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="cpf" class="form-label">CPF </label>
+                    <input type="text" class="form-control" id="cpf" required>
+                </div>
+                <div class="mb-3">
+                    <label for="telefone" class="form-label">Telefone</label>
+                    <input type="tel" class="form-control" id="telefone" required>
+                </div>
+                <div class="mb-3">
+                    <label for="endereco" class="form-label">Endereço</label>
+                    <input type="text" class="form-control" id="endereco" required>
+                </div>
+
+                <!-- Radio Buttons para selecionar se é Profissional ou Paciente -->
+                <div class="mb-3">
+                    <label class="form-label">Tipo de Perfil</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="perfil" id="perfilPaciente" value="Paciente"
+                            required>
+                        <label class="form-check-label" for="perfilPaciente">Paciente</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="perfil" id="perfilProfissional"
+                            value="Profissional">
+                        <label class="form-check-label" for="perfilProfissional">Profissional da Saúde</label>
+                    </div>
+                </div>
+
+                <!-- Campos específicos para Profissional da Saúde -->
+                <div id="camposProfissional" style="display: none;">
+                    <div class="mb-3">
+                        <label for="especialidade" class="form-label">Especialidade</label>
+                        <input type="text" class="form-control" id="especialidade">
+                    </div>
+                    <div class="mb-3">
+                        <label for="crm" class="form-label">CRM (se aplicável)</label>
+                        <input type="text" class="form-control" id="crm">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Mostrar/Esconder campos baseados no tipo de perfil selecionado
+            $("input[name='perfil']").on("change", function () {
+                if ($("#perfilProfissional").is(":checked")) {
+                    $("#camposProfissional").show();
+                } else {
+                    $("#camposProfissional").hide();
+                }
+            });
+
+            // Enviar o formulário
+            $("#formCadastro").on("submit", function (e) {
+                e.preventDefault();
+                // Aqui você pode pegar os dados e enviá-los para o servidor, como por exemplo:
+                const nome = $("#nome").val();
+                const email = $("#email").val();
+                const cpf = $("#cpf").val();
+                const telefone = $("#telefone").val();
+                const endereco = $("#endereco").val();
+                const tipoPerfil = $("input[name='perfil']:checked").val();
+
+                if (tipoPerfil === "Profissional") {
+                    const especialidade = $("#especialidade").val();
+                    const crm = $("#crm").val();
+                    console.log(nome, email, cpf,  telefone, endereco, tipoPerfil, especialidade, crm);
+                } else {
+                    console.log(nome, email, cpf, telefone, endereco, tipoPerfil);
+                }
+
+                localStorage.setItem("cadastroSucesso", "Cadastro realizado com sucesso!");
+                window.location.href = "../Login/login.html";
+            });
+        });
+    </script>
 </body>
+
 </html>

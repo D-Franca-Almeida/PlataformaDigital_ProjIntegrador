@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Cliente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="../Styles/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Styles/PerfilPaciente.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="logo">
+            <span>Easy</span>Health
+        </div>
+        <nav>
+            <ul>
+                <li>Início</li>
+                <li>Consultas</li>
+                <li>Perfil</li>
+                <li>Configurações</li>
+            </ul>
+        </nav>
+        <div class="login">
+            <a href="../Home/index.html">Sair</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="profile-header">
+            <h1>Olá, João Silva!</h1>
+            <p>Bem-vindo ao seu perfil. Aqui você pode visualizar seus dados e agendar consultas.</p>
+        </div>
+
+        <div class="profile-info">
+            <div class="profile-card">
+                <h3>Informações Pessoais</h3>
+                <p><strong>Email:</strong> joao.silva@mail.com</p>
+                <p><strong>Telefone:</strong> (11) 98765-4321</p>
+                <p><strong>Endereço:</strong> Rua das Flores, 123</p>
+            </div>
+            <div class="profile-card">
+                <h3>Plano de Saúde</h3>
+                <p><strong>Operadora:</strong> Saúde Total</p>
+                <p><strong>Plano:</strong> Premium</p>
+                <p><strong>Validade:</strong> Até 12/2025</p>
+            </div>
+        </div>
+
+        <div class="appointment-list">
+            <h3>Minhas Consultas Agendadas</h3>
+            <div class="appointment-item">
+                <p>Fisioterapia - Dr. Ana Pereira</p>
+                <p>15/12/2024 - 10:00</p>
+                <p class="status">Confirmada</p>
+            </div>
+            <div class="appointment-item">
+                <p>Consulta Nutricional - Dra. Beatriz Costa</p>
+                <p>17/12/2024 - 14:00</p>
+                <p class="status">Pendente</p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <div class="action">Agendar Nova Consulta</div>
+            <div class="action">Editar Perfil</div>
+        </div>
+    </main>
+
+    <script src="../Scripts/jquery-3.7.1.min.js"></script>
+    <script src="../Scripts/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
