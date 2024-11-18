@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Profissional de Saúde</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="../Styles/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Styles/PerfilProfissional.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="logo">
+            <span>Easy</span>Health
+        </div>
+        <nav>
+            <ul>
+                <li>Início</li>
+                <li>Consultas</li>
+                <li>Perfil</li>
+                <li>Configurações</li>
+            </ul>
+        </nav>
+        <div class="login">
+            <a href="../Home/index.html">Sair</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="profile-header">
+            <h1>Olá, Dra. Maria de Amador!</h1>
+            <p>Bem-vindo ao seu perfil profissional. Aqui você pode gerenciar suas consultas, visualizar informações do
+                paciente e agendar atendimentos.</p>
+        </div>
+
+        <div class="profile-info">
+            <div class="profile-card">
+                <h3>Informações Profissionais</h3>
+                <p><strong>Especialidade:</strong> Fisioterapeuta</p>
+                <p><strong>CREFITO:</strong> 12345-SP</p>
+                <p><strong>Contato:</strong> maridaAmador@saude.com</p>
+                <p><strong>Telefone:</strong> (11) 99999-9999</p>
+            </div>
+            <div class="profile-card">
+                <h3>Horário de Atendimento</h3>
+                <p><strong>Segunda a Sexta:</strong> 8:00 - 18:00</p>
+                <p><strong>Sábado:</strong> 9:00 - 12:00</p>
+            </div>
+        </div>
+
+        <div class="appointment-list">
+            <h3>Consultas Agendadas</h3>
+            <div class="appointment-item">
+                <p>Paciente - João Silva</p>
+                <p>15/12/2024 - 10:00</p>
+                <p class="status">Confirmada</p>
+            </div>
+            <div class="appointment-item">
+                <p>Paciente - Maria Costa</p>
+                <p>17/12/2024 - 14:00</p>
+                <p class="status">Pendente</p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <div class="action">Agendar Novo Atendimento</div>
+            <div class="action">Editar Perfil</div>
+        </div>
+    </main>
+
+    <script src="../Scripts/jquery-3.7.1.min.js"></script>
+    <script src="../Scripts/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
