@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Consultas</title>
+    <link href="../Styles/bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Styles/minhasConsultasPaciente.css">
+</head>
+
+<body>
+    <div class="container-fluid p-0">
+        <!-- Header -->
+        <div id="minhas" class="bg-success text-white text-center py-3">
+            <h1>Minhas Consultas</h1>
+        </div>
+
+        <!-- Sidebar e Conteúdo Principal -->
+        <div class="row g-0 flex-wrap">
+            <!-- Sidebar -->
+            <div class="col-12 col-md-3 bg-light p-3 rounded-sidebar">
+                <!-- Conteúdo da Sidebar -->
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <button class="btn btn-success" id="prevMonth">&lt;</button>
+                    <h4 id="monthYear">Março 2024</h4>
+                    <button class="btn btn-success" id="nextMonth">&gt;</button>
+                </div>
+                <div id="calendar"></div>
+                <div class="mt-3 text-center">
+                    <img src="logo.png" alt="Logo" class="img-fluid">
+                </div>
+            </div>
+
+            <!-- Conteúdo Principal -->
+            <div class="col-12 col-md-9 p-4">
+                <!-- Conteúdo Principal -->
+                <div class="d-flex justify-content-between mb-3">
+                    <select class="form-select w-25" id="filterProfession">
+                        <option value="all">Todos</option>
+                        <option value="medico">Médicos</option>
+                        <option value="fisioterapeuta">Fisioterapeutas</option>
+                        <option value="nutricionista">Nutricionistas</option>
+                        <option value="instrutor">Instrutores</option>
+                    </select>
+                </div>
+
+                <!-- Dias da Semana -->
+                <div class="row text-center">
+                    <div class="col">SEG 4</div>
+                    <div class="col">TER 5</div>
+                    <div class="col">QUA 6</div>
+                    <div class="col">QUI 7</div>
+                    <div class="col">SEX 8</div>
+                </div>
+
+                <!-- Horários da Agenda -->
+                <div id="schedule">
+                    <!-- Horário das 08:00 -->
+                    <div class="row text-center">
+                        <div class="col schedule-item">08:00</div>
+                        <div class="col schedule-item">08:00</div>
+                        <div class="col schedule-item">08:00</div>
+                        <div class="col schedule-item">08:00</div>
+                        <div class="col schedule-item">08:00</div>
+                        
+                    </div>
+
+                    <!-- Horário das 09:00 -->
+                    <div class="row text-center">
+                        <div class="col schedule-item">09:00</div>
+                        <div class="col schedule-item">09:00</div>
+                        <div class="col schedule-item">09:00</div>
+                        <div class="col schedule-item">09:00</div>
+                        <div class="col schedule-item">09:00</div>
+                        
+                        
+                    </div>
+                    <!-- Horário das 10:00 -->
+                    <div class="row text-center">
+                        <div class="col schedule-item">10:00</div>
+                        <div class="col schedule-item">10:00</div>
+                        <div class="col schedule-item">10:00</div>
+                        <div class="col schedule-item">10:00</div>
+                        <div class="col schedule-item">10:00</div>
+                        
+                    </div>
+                    <!-- Horário das 11:00 -->
+                    <div class="row text-center">
+                        <div class="col schedule-item">11:00</div>
+                        <div class="col schedule-item">11:00</div>
+                        <div class="col schedule-item">11:00</div>
+                        <div class="col schedule-item">11:00</div>
+                        <div class="col schedule-item">11:00</div>
+                        
+                    </div>
+
+                    <!-- Intervalo de almoço -->
+                    <div class="row text-center">
+                        <div class="col time-slot">12:00 - Almoço</div>
+                        <div class="col time-slot">12:00 - Almoço</div>
+                        <div class="col time-slot">12:00 - Almoço</div>
+                        <div class="col time-slot">12:00 - Almoço</div>
+                        <div class="col time-slot">12:00 - Almoço</div>
+                        
+                    </div>
+
+                    <!-- Horário das 13:00 -->
+                    <div class="row text-center">
+                        <div class="col schedule-item">13:00 -> Dr. Clóvis Petterson - Cardiologista</div>
+                        <div class="col schedule-item">13: 00</div>
+                        <div class="col schedule-item">13: 00</div>
+                        <div class="col schedule-item">13: 00</div>
+                        <div class="col schedule-item">13: 00</div>
+                        
+                    </div>
+
+                    <!-- Horário das 14:00 -->
+                    <div class="row text-center">
+                        <div class="col schedule-item">14:00</div>
+                        <div class="col schedule-item">14:00</div>
+                        <div class="col schedule-item">14:00</div>
+                        <div class="col schedule-item">14:00</div>
+                        <div class="col schedule-item">14:00</div>
+                        
+                    </div>
+                    <!-- Horário das 15:00 -->
+                    <div class="row text-center">
+                        <div class="col schedule-item">15:00 </div>
+                        <div class="col schedule-item">15:00 </div>
+                        <div class="col schedule-item">15:00 </div>
+                        <div class="col schedule-item">15:00 </div>
+                        <div class="col schedule-item">15:00 </div>
+                        
+                    </div>
+                    <!-- Horário das 16:00 -->
+                    <div class="row text-center">
+                        <div class="col schedule-item">16:00 </div>
+                        <div class="col schedule-item">16:00 </div>
+                        <div class="col schedule-item">16:00 </div>
+                        <div class="col schedule-item">16:00 -> Dr. Clóvis Petterson - Cardiologista </div>
+                        <div class="col schedule-item">16:00 </div>
+                        
+                    </div>
+                    <!-- Último horário (17:00) -->
+                    <div class="row text-center">
+                        <div class="col schedule-item">17:00 </div>
+                        <div class="col schedule-item">17:00 </div>
+                        <div class="col schedule-item">17:00 </div>
+                        <div class="col schedule-item">17:00 </div>
+                        <div class="col schedule-item">17:00 </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../Scripts/jquery-3.7.1.min.js"></script>
+    <script src="../Scripts/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../Scripts/minhasConsultasProfissional.js"></script>
+</body>
+
+</html>
