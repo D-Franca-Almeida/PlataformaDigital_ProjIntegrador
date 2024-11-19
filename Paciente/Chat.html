@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyHealth - Chatbot Médico</title>
+    <link rel="stylesheet" href="/Styles/Chat.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Conversas</h2>
+            <div class="conversation">
+                <p><strong>Dra. Alessandra</strong></p>
+                <p>Lorem ipsum dolor sit amet...</p>
+            </div>
+            <div class="conversation">
+                <p><strong>Dra. Alessandra</strong></p>
+                <p>Lorem ipsum dolor sit amet...</p>
+            </div>
+            <div class="conversation">
+                <p><strong>Dra. Alessandra</strong></p>
+                <p>Lorem ipsum dolor sit amet...</p>
+            </div>
+            <div class="conversation">
+                <p><strong>Dra. Alessandra</strong></p>
+                <p>Lorem ipsum dolor sit amet...</p>
+            </div>
+        </div>
+        <div class="chat-section">
+            <div class="chat-header">
+                <h2>Chat com Dra. Alessandra</h2>
+            </div>
+            <div class="chat-box" id="chat-box"></div>
+            <div class="chat-input">
+                <input type="text" id="user-input" placeholder="Digite sua mensagem...">
+                <button onclick="sendMessage()">Enviar</button>
+                <input type="file" id="file-input" style="display: none;" onchange="sendImage()">
+                <button onclick="document.getElementById('file-input').click()">Enviar Imagem</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+    const userInput = document.getElementById('user-input').value.trim();
+    if (userInput === '') return;
+
+    const chatBox = document.getElementById('chat-box');
+
+    // Adiciona mensagem do usuário
+    const userMessage = document.createElement('div');
+    userMessage.className = 'message user-message';
+    userMessage.innerHTML = `<p>${userInput}</p><span class="timestamp">${new Date().toLocaleTimeString()}</span>`;
+    chatBox.appendChild(userMessage);
+
+    // Limpa o campo de entrada
+    document.getElementById('user-input').value = '';
+
+    // Rola para o fim do chat
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    // Simula resposta do bot
+    setTimeout(() => {
+        const botMessage = document.createElement('div');
+        botMessage.className = 'message bot-message';
+        botMessage.innerHTML = "<p>" + getBotResponse(userInput) + "</p>" + 
+                       "<span class='timestamp'>" + new Date().toLocaleTimeString() + "</span>";
+
+        chatBox.appendChild(botMessage);
+
+        // Rola para o fim do chat
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }, 1000);
+}
+
+function sendImage() {
+    const fileInput = document.getElementById('file-input');
+    const file = fileInput.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const chatBox = document.getElementById('chat-box');
+
+        // Adiciona imagem do usuário no chat
+        const userMessage = document.createElement('div');
+        userMessage.className = 'message user-message';
+        userMessage.innerHTML = `<img src="${e.target.result}" alt="Imagem enviada" style="max-width: 100%;"> 
+                         <span class="timestamp">${new Date().toLocaleTimeString()}</span>`;
+
+        chatBox.appendChild(userMessage);
+
+        // Rola para o fim do chat
+        chatBox.scrollTop = chatBox.scrollHeight;
+    };
+    reader.readAsDataURL(file);
+
+    // Limpa o campo de arquivo
+    fileInput.value = '';
+}
+
+function getBotResponse(input) {
+    // Respostas simples para demonstração
+    const lowerInput = input.toLowerCase();
+    if (lowerInput.includes('bati a cabeça')) {
+        return 'Você deve procurar atendimento médico imediatamente para avaliar a gravidade da lesão.';
+    } else if (lowerInput.includes('febre')) {
+        return 'Mantenha-se hidratado e procure um médico se a febre persistir por mais de 24 horas.';
+    } else {
+        return 'Desculpe, não entendi sua pergunta. Por favor, consulte um médico para obter orientação adequada.';
+    }
+}
+    </script>
+</body>
+</html>
