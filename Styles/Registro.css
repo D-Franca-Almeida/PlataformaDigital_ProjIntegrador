@@ -122,3 +122,6 @@ ul li a {
 ul li a:hover {
     color: #170C23;
 }
+.input-error {
+    border-color: red;
+}

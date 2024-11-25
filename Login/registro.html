@@ -48,6 +48,15 @@
                     <label for="endereco" class="form-label">Endereço</label>
                     <input type="text" class="form-control" id="endereco" required>
                 </div>
+                <div class="mb-3">
+                    <label for="senha" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="senha" minlength="6" required>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
+                    <input type="password" class="form-control" id="confirmarSenha" minlength="6" required>
+                </div>
+
 
                 <!-- Radio Buttons para selecionar se é Profissional ou Paciente -->
                 <div class="mb-3">
@@ -83,41 +92,57 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            // Mostrar/Esconder campos baseados no tipo de perfil selecionado
-            $("input[name='perfil']").on("change", function () {
-                if ($("#perfilProfissional").is(":checked")) {
-                    $("#camposProfissional").show();
-                } else {
-                    $("#camposProfissional").hide();
-                }
-            });
+    <script>  $(document).ready(function () {
+    // Mostrar/Esconder campos baseados no tipo de perfil selecionado
+    $("input[name='perfil']").on("change", function () {
+    if ($("#perfilProfissional").is(":checked")) {
+    $("#camposProfissional").show();
+    } else {
+    $("#camposProfissional").hide();
+    }
+    });
+    
+    // Enviar o formulário
+    $("#formCadastro").on("submit", function (e) {
+    e.preventDefault();
+    
+    // Verificar se as senhas coincidem
+    const senha = $("#senha").val();
+    const confirmarSenha = $("#confirmarSenha").val();
+    if (senha !== confirmarSenha) {
+    alert("As senhas não coincidem!");
+    return;
+    }
+    
+    // Capturar os valores dos campos
+    const nome = $("#nome").val();
+    const email = $("#email").val();
+    const cpf = $("#cpf").val();
+    const telefone = $("#telefone").val();
+    const endereco = $("#endereco").val();
+    const tipoPerfil = $("input[name='perfil']:checked").val();
+    
+    if (tipoPerfil === "Profissional") {
+    const especialidade = $("#especialidade").val();
+    const crm = $("#crm").val();
+    console.log(nome, email, cpf, telefone, endereco, tipoPerfil, especialidade, crm, senha);
+    } else {
+    console.log(nome, email, cpf, telefone, endereco, tipoPerfil, senha);
+    }
+    
+    localStorage.setItem("cadastroSucesso", "Cadastro realizado com sucesso!");
+    window.location.href = "../Login/login.html";
+    });
+    });
 
-            // Enviar o formulário
-            $("#formCadastro").on("submit", function (e) {
-                e.preventDefault();
-                // Aqui você pode pegar os dados e enviá-los para o servidor, como por exemplo:
-                const nome = $("#nome").val();
-                const email = $("#email").val();
-                const cpf = $("#cpf").val();
-                const telefone = $("#telefone").val();
-                const endereco = $("#endereco").val();
-                const tipoPerfil = $("input[name='perfil']:checked").val();
+    if (senha !== confirmarSenha) {
+            $("#senha, #confirmarSenha").addClass("input-error");
+        } else {
+            $("#senha, #confirmarSenha").removeClass("input-error");
+        }
 
-                if (tipoPerfil === "Profissional") {
-                    const especialidade = $("#especialidade").val();
-                    const crm = $("#crm").val();
-                    console.log(nome, email, cpf,  telefone, endereco, tipoPerfil, especialidade, crm);
-                } else {
-                    console.log(nome, email, cpf, telefone, endereco, tipoPerfil);
-                }
-
-                localStorage.setItem("cadastroSucesso", "Cadastro realizado com sucesso!");
-                window.location.href = "../Login/login.html";
-            });
-        });
     </script>
+
 </body>
 
 </html>
